@@ -1,27 +1,30 @@
-import 'package:chat_app_flutter/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/chat_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/registration_screen.dart';
 
-void main() => runApp(FlashChat());
+import 'package:chat_app_flutter/screens/chat_screen.dart';
+import 'package:chat_app_flutter/screens/login_screen.dart';
+import 'package:chat_app_flutter/screens/registration_screen.dart';
+import 'package:chat_app_flutter/screens/welcome_screen.dart';
+
+void main() => runApp(const FlashChat());
 
 class FlashChat extends StatelessWidget {
+  const FlashChat({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         textTheme: const TextTheme(
-            //body1: TextStyle(color: Colors.black54),
-            ),
+          bodyLarge: TextStyle(color: Colors.black54),
+        ),
       ),
-      initialRoute: 'welcome_screen',
+      initialRoute: WelcomeScreen.id,
       routes: {
-        'welcome_screen': (context) => WelcomeScreen(),
-        'login_screen': (context) => LoginScreen(),
-        'registration_screen': (context) => RegistrationScreen(),
-        'chat_screen': (context) => ChatScreen(),
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        ChatScreen.id: (context) => ChatScreen(),
       },
     );
   }
