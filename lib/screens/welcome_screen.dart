@@ -1,11 +1,15 @@
-import 'package:chat_app_flutter/screens/login_screen.dart';
-import 'package:chat_app_flutter/screens/registration_screen.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeScreen extends StatefulWidget {
-  static const String id = 'welcome_screen';
+import 'package:chat_app_flutter/screens/login_screen.dart';
+import 'package:chat_app_flutter/screens/registration_screen.dart';
+import 'package:chat_app_flutter/components/rounded_button.dart';
 
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  static const String id = 'welcome_screen';
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
@@ -15,6 +19,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   late Animation animation;
   late AnimationController controller;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -33,7 +44,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     // );
 
     animation = ColorTween(
-      begin: Color(0xFF526D82),
+      begin: const Color(0xFF526D82),
       end: Colors.white,
     ).animate(controller);
 
@@ -45,15 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    controller.dispose();
-    super.dispose();
   }
 
   @override
@@ -79,56 +82,38 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 const SizedBox(
                   width: 10,
                 ),
-                const Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
+                DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 45,
                     fontWeight: FontWeight.w900,
                     color: Colors.black,
                   ),
-                ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'Flash chat',
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
             const SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to login screen.
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: const Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            RoundedButton(
+              title: 'Log In',
+              color: Colors.lightBlueAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to registration screen.
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: const Text(
-                    'Register',
-                  ),
-                ),
-              ),
+            RoundedButton(
+              title: 'Register',
+              color: Colors.blueAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
             ),
           ],
         ),
