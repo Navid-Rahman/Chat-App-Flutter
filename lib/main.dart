@@ -5,7 +5,15 @@ import 'package:chat_app_flutter/screens/login_screen.dart';
 import 'package:chat_app_flutter/screens/registration_screen.dart';
 import 'package:chat_app_flutter/screens/welcome_screen.dart';
 
-void main() => runApp(const FlashChat());
+import 'package:firebase_core/firebase_core.dart';
+
+// void main() => runApp(const FlashChat());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const FlashChat());
+}
 
 class FlashChat extends StatelessWidget {
   const FlashChat({super.key});
@@ -16,7 +24,7 @@ class FlashChat extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: WelcomeScreen.id,
       routes: {
-        WelcomeScreen.id: (context) => WelcomeScreen(),
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ChatScreen.id: (context) => ChatScreen(),
