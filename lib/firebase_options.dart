@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '878225776740',
     projectId: 'flash-chat-18117',
     storageBucket: 'flash-chat-18117.appspot.com',
-    iosClientId: '878225776740-ifrqvc4c8bj6aprusgq9ak2v3etjf66d.apps.googleusercontent.com',
+    iosClientId:
+        '878225776740-ifrqvc4c8bj6aprusgq9ak2v3etjf66d.apps.googleusercontent.com',
     iosBundleId: 'com.example.chatAppFlutter',
   );
 }

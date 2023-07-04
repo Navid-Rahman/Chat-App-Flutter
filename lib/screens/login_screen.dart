@@ -1,10 +1,10 @@
-import 'package:chat_app_flutter/screens/chat_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 
 import 'package:chat_app_flutter/components/rounded_button.dart';
 import 'package:chat_app_flutter/constants.dart';
-import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
+import 'package:chat_app_flutter/screens/chat_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String id = 'login_screen';

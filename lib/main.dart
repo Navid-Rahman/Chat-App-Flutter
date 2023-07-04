@@ -1,11 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chat_app_flutter/screens/chat_screen.dart';
 import 'package:chat_app_flutter/screens/login_screen.dart';
 import 'package:chat_app_flutter/screens/registration_screen.dart';
 import 'package:chat_app_flutter/screens/welcome_screen.dart';
-
-import 'package:firebase_core/firebase_core.dart';
 
 // void main() => runApp(const FlashChat());
 
