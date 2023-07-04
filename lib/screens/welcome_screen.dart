@@ -72,11 +72,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Hero(
-                  tag: 'logo',
-                  child: Container(
-                    child: Image.asset('images/chat_icon.png'),
-                    height: 60,
+                Flexible(
+                  child: Hero(
+                    tag: 'logo',
+                    child: Container(
+                      child: Image.asset('images/chat_icon.png'),
+                      height: 60,
+                    ),
                   ),
                 ),
                 const SizedBox(
